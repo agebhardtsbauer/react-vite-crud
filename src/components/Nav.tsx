@@ -5,12 +5,14 @@ function Nav() {
   return (
     <>
       <header>
-        <Link to="/">
-          <h1>Alan's CRUD</h1>
-        </Link>
-        <nav>
+        <nav className="navbar">
+          <Link to="/">
+            <h1>Alan's CRUD</h1>
+          </Link>
           <NavLink to="/posts">posts</NavLink>
+          <br />
           <NavLink to="/about">about</NavLink>
+          <br />
           <NavLink to="/contact">contact</NavLink>
         </nav>
       </header>
