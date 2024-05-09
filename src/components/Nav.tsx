@@ -9,11 +9,11 @@ function Nav() {
           <Link to="/">
             <h1>Alan's CRUD</h1>
           </Link>
-          <NavLink to="/posts">posts</NavLink>
+          <NavLink to="/posts">Articles</NavLink>
           <br />
-          <NavLink to="/about">about</NavLink>
+          <NavLink to="/about">About</NavLink>
           <br />
-          <NavLink to="/contact">contact</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </nav>
       </header>
     </>

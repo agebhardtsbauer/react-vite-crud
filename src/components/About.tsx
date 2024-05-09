@@ -3,6 +3,7 @@ import React from "react";
 function About() {
   return (
     <div>
+      <h1>About The Fishes</h1>
       <p>
         Fishing is a popular outdoor recreational activity enjoyed by many
         people around the world. It involves catching fish from rivers, lakes,
