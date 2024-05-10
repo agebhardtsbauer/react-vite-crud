@@ -1,23 +1,23 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import ArticlesSidebar from "./ArticlesSidebar";
+import { useArticle } from "../handlers/ArticlesHandler";
+import Box from "@mui/material/Box";
 
 const DeleteArticle: React.FC = () => {
-  const [id, setId] = useState<string>("");
   const navigate = useNavigate();
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setId(event.target.value);
-  };
+  const { articleId, handleIdChange } = useArticle();
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
     axios
-      .delete(`http://localhost:3007/articles/${id}`)
+      .delete(`http://localhost:3007/articles/${articleId}`)
       .then(() => {
-        alert("Article deleted successfully");
         navigate("/posts"); // return to the /posts route after deleting the article
       })
       .catch((error) => {
@@ -27,18 +27,27 @@ const DeleteArticle: React.FC = () => {
   };
 
   return (
-    <div className="contentContainer">
+    <Box className="contentContainer">
       <ArticlesSidebar />
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={id}
-          onChange={handleInputChange}
-          placeholder="Article ID"
-        />
-        <button type="submit">Delete Article</button>
+        <Box m={2}>
+          <TextField
+            type="text"
+            value={articleId}
+            onChange={handleIdChange}
+            placeholder="Article ID"
+          />
+        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          sx={{ ml: 2 }}
+        >
+          Delete Article
+        </Button>
       </form>
-    </div>
+    </Box>
   );
 };
 

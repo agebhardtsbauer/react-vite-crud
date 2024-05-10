@@ -1,23 +1,55 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link as RouterLink } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Link } from "@mui/material";
 
-function Nav() {
+const Nav: React.FC = () => {
   return (
-    <>
-      <header>
-        <nav className="navbar">
-          <Link to="/">
-            <h1>Alan's CRUD</h1>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1 }}
+        >
+          <Link
+            component={RouterLink}
+            to="/"
+            color="inherit"
+            underline="none"
+          >
+            Alan's CRUD
           </Link>
-          <NavLink to="/posts">Articles</NavLink>
-          <br />
-          <NavLink to="/about">About</NavLink>
-          <br />
-          <NavLink to="/contact">Contact</NavLink>
-        </nav>
-      </header>
-    </>
+        </Typography>
+        <Link
+          component={RouterLink}
+          to="/posts"
+          color="inherit"
+          underline="hover"
+          sx={{ marginRight: 4 }}
+        >
+          Articles
+        </Link>
+        <Link
+          component={RouterLink}
+          to="/about"
+          color="inherit"
+          underline="hover"
+          sx={{ marginRight: 4 }}
+        >
+          About
+        </Link>
+        <Link
+          component={RouterLink}
+          to="/contact"
+          color="inherit"
+          underline="hover"
+          sx={{ marginRight: 8 }}
+        >
+          Contact
+        </Link>
+      </Toolbar>
+    </AppBar>
   );
-}
+};
 
 export default Nav;

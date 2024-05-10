@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
-import NewArticle from "./NewArticle";
+import { List, ListItem, ListItemText } from "@mui/material";
 
 interface Link {
   label: string;
@@ -15,16 +14,18 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ navLinks }) => {
   return (
     <div className="sidebar">
-      <ul className="sidebarList">
+      <List>
         {navLinks.map((link, index) => (
-          <li
-            className="sidebarListItem"
+          <ListItem
+            button
             key={index}
+            component={NavLink}
+            to={link.route}
           >
-            <NavLink to={link.route}>{link.label}</NavLink>
-          </li>
+            <ListItemText primary={link.label} />
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </div>
   );
 };

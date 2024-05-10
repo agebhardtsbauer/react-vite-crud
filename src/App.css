@@ -63,6 +63,13 @@ h1 {
   justify-content: center;
 }
 
+.contentContainer h2 {
+  font-size: 45px;
+  justify-content: center;
+  background-color: #428ecb;
+  margin-bottom: 0;
+}
+
 .articleWide {
   width: 100%;
 }

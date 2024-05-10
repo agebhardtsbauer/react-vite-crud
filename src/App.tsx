@@ -9,6 +9,7 @@ import Nav from "./components/Nav.tsx";
 import NewArticle from "./components/NewArticle";
 import EditArticle from "./components/EditArticle.tsx";
 import DeleteArticle from "./components/DeleteArticle.tsx";
+import ShowArticle from "./components/ShowArticle.tsx";
 // import articlesApi from "./api/articles";
 // import { useEffect } from "react";
 
@@ -61,6 +62,10 @@ function App() {
           <Route
             path="/deletearticle"
             element={<DeleteArticle />}
+          />
+          <Route
+            path="/articles/:id"
+            element={<ShowArticle />}
           />
         </Routes>
       </Router>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Box, Typography, List, ListItem, ListItemText } from "@mui/material";
 import axios from "axios";
 import ArticlesSidebar from "./ArticlesSidebar";
 
@@ -10,35 +11,46 @@ interface Article {
 }
 
 const AllArticles = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3007/articles")
+      .get<Article[]>("http://localhost:3007/articles")
       .then((response) => setArticles(response.data))
       .catch((error) =>
         console.error(`There was an error retrieving the articles: ${error}`)
       );
   }, []); // Retrieve the articles when component mounts
+
   return (
-    <div className="articleWide">
-      <h1>Article List</h1>
-      {(articles as Article[]).map((article) => (
-        <div key={article.id}>
-          <h2>{article.title}</h2>
-          <p>{article.content}</p>
-        </div>
-      ))}
-    </div>
+    <Box>
+      <Typography
+        variant="h3"
+        gutterBottom
+      >
+        Articles
+      </Typography>
+      <List>
+        {articles.map((article) => (
+          <ListItem
+            key={article.id}
+            component={Link}
+            to={`/articles/${article.id}`}
+          >
+            <ListItemText primary={article.title} />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 };
 
 function Posts() {
   return (
-    <div className="contentContainer">
+    <Box sx={{ display: "flex", p: 1 }}>
       <ArticlesSidebar />
       <AllArticles />
-    </div>
+    </Box>
   );
 }
 
