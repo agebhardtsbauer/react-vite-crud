@@ -10,23 +10,6 @@ import NewArticle from "./components/NewArticle";
 import EditArticle from "./components/EditArticle.tsx";
 import DeleteArticle from "./components/DeleteArticle.tsx";
 import ShowArticle from "./components/ShowArticle.tsx";
-// import articlesApi from "./api/articles";
-// import { useEffect } from "react";
-
-// // get the articles from articles api
-// const getAllArticles = async () => {
-//   const articles = await articlesApi.get("/articles");
-//   console.log(articles);
-//   return articles;
-// };
-
-// useEffect(() => {
-//   const fetchArticles = async () => {
-//     const articles = await getAllArticles();
-//     console.log(articles);
-//   };
-//   fetchArticles();
-// }, []);
 
 function App() {
   return (

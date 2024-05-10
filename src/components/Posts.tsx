@@ -47,7 +47,7 @@ const AllArticles = () => {
 
 function Posts() {
   return (
-    <Box sx={{ display: "flex", p: 1 }}>
+    <Box className="contentContainer">
       <ArticlesSidebar />
       <AllArticles />
     </Box>
